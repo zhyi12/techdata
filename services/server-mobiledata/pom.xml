@@ -91,7 +91,7 @@
 
         <dependency>
             <groupId>com.gwssi.stats</groupId>
-            <artifactId>gwssi-stats-mobile-dataDimImpl</artifactId>
+            <artifactId>gwssi-stats-mobile-datadimImpl</artifactId>
             <version>${gwssi.stats.version}</version>
         </dependency>
 
