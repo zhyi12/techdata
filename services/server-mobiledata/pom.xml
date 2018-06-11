@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.0.M7</version>
+    </parent>
+
+    <artifactId>server-mobile</artifactId>
+    <name>server-mobile</name>
+    <description>server-mobile</description>
+
+    <packaging>jar</packaging>
+
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/libs-milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/libs-milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Finchley.M5</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+    <properties>
+        <main.basedir>${basedir}/../..</main.basedir>
+        <m2eclipse.wtp.contextRoot>/</m2eclipse.wtp.contextRoot>
+        <youi.version>3.0.0-SNAPSHOT</youi.version>
+        <mongodb.version>3.6.3</mongodb.version>
+        <gwssi.stats.version>2.0.0-SNAPSHOT</gwssi.stats.version>
+    </properties>
+    <dependencies>
+
+        <dependency>
+            <groupId>com.gwssi.stats</groupId>
+            <artifactId>gwssi-stats-mobile-dataqueryImpl</artifactId>
+            <version>${gwssi.stats.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.gwssi.stats</groupId>
+            <artifactId>gwssi-stats-mobile-dataImpl</artifactId>
+            <version>${gwssi.stats.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.gwssi.stats</groupId>
+            <artifactId>gwssi-stats-mobile-dataDimImpl</artifactId>
+            <version>${gwssi.stats.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.gwssi.stats</groupId>
+            <artifactId>gwssi-stats-mobile-dataqueryImpl</artifactId>
+            <version>${gwssi.stats.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.youi.framework</groupId>
+            <artifactId>youi-framework-services-boot</artifactId>
+            <version>${youi.version}</version>
+        </dependency>
+
+        <!-- Test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.0.0.M7</version>
+
+                <configuration>
+                    <fork>true</fork>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

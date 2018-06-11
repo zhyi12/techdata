@@ -1,0 +1,41 @@
+server:
+  port: 8112
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://47.93.31.168:8761/eureka/
+management:
+  endpoints:
+    web:
+      basePath: /
+      expose: [metrics,info,health]
+info:
+  app:
+    name: ${spring.application.name}
+    description: operator services
+    version: 1.0.0
+
+spring:
+  cloud:
+    inetutils:
+      preferredNetworks:
+        - 47.93.
+  data:
+    mongodb:
+      host: 47.93.31.168:27511
+      database: stats-filing
+      username: filing
+      password: filing
+
+security:
+  oauth2:
+    client:
+      accessTokenUri: http://47.93.31.168:8868/oauth/token
+      userAuthorizationUri: http://47.93.31.168:8868/oauth/authorize
+    resource:
+      id: ${spring.application.name}
+      user-info-uri: http://47.93.31.168:8868/oauth/client
+      prefer-token-info: false
