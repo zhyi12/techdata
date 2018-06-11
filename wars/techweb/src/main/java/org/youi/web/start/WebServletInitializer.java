@@ -17,6 +17,8 @@ package org.youi.web.start;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.youi.framework.web.WebConfig;
+import org.youi.framework.web.security.WebSecurityConfig;
 
 /**
  * @author zhouyi
@@ -27,6 +29,8 @@ public class WebServletInitializer extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(WebStarter.class);
+        return builder.sources(WebConfig.class,
+                WebSecurityConfig.class,
+                WebStarter.class);
     }
 }
