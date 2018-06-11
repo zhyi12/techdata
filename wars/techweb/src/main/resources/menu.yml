@@ -1,0 +1,75 @@
+id: MENU_ROOT
+text: 系统菜单
+children:
+  -
+    id: metadata
+    text: 指标
+    icon: sitemap
+    roles:
+      - ROLE_ADMIN
+      - ROLE_USER
+    children:
+      -
+        id: 010100
+        text: 指标配置
+        children:
+          -
+            id: 010101
+            text: 指标管理
+            pageUrl: page/techdata.indicator/indicatorList.html
+          -
+            id: 010102
+            text: 发布管理
+            pageUrl: page/techdata.datagroup/dataGroupList.html
+      -
+        id: 010200
+        text: 标准数据
+        children:
+          -
+            id: 010201
+            text: 行政区划
+          -
+            id: 010202
+            text: 国民经济行业分类
+  -
+    id: mobile
+    text: 数据
+    icon: mobile-phone
+    children:
+      -
+        id: 060100
+        text: 指标数据
+        children:
+          -
+            id: 060101
+            text: 数据上传
+            pageUrl: page/techdata.dataimport/importList.html
+          -
+            id: 060102
+            text: 数据维护
+            pageUrl: page/techdata.data/dataList.html
+      -
+        id: 060200
+        text: 数据对比
+        children:
+          -
+            id: 060201
+            text: 数据主题管理
+            pageUrl: page/stats.mobile.indicator/indicatorList1.html
+  -
+    id: sys
+    text: 系统
+    icon: gear
+    children:
+      -
+        id: 990100
+        text: 菜单管理
+        pageUrl: page/admin.menu/menuList.html
+      -
+        id: 990200
+        text: 页面管理
+        pageUrl: page/admin.page/pageList.html
+      -
+        id: 990300
+        text: 角色管理
+        pageUrl: page/admin.role/roleList.html

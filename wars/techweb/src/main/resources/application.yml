@@ -1,0 +1,66 @@
+#
+server:
+  port: 8080
+  ession:
+      cookie:
+        name: JSESSIONID
+  servlet:
+    jsp:
+      init-parameters:
+        development: true   #生产环境设置为false
+zuul:
+  routes:
+    uaa:
+      path: /uaa/**
+      sensitiveHeaders:
+      serviceId: service-auth
+    operatorServices:
+      path: /operatorServices/**
+      sensitiveHeaders: Set-Cookie
+      serviceId: base-services
+    mobileServices:
+          path: /mobileServices/**
+          sensitiveHeaders:
+          serviceId: mobile-services
+    upload:
+      path: /fileserver/**
+      sensitiveHeaders:
+      serviceId: file-services
+
+
+  add-proxy-headers: true
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://47.93.31.168:8761/eureka/
+security:
+  oauth2:
+    client:
+      access-token-uri: http://47.93.31.168:8868/oauth/token
+      user-authorization-uri: http://47.93.31.168:8868/oauth/authorize
+      client-id: web001
+      client-secret: 123456
+      registered-redirect-uri: /oauth/code
+    resource:
+      user-info-uri: http://47.93.31.168:8868/oauth/client
+    sso:
+      app-login-uri: http://47.93.31.168:8080/login
+      logout-uri: http://47.93.31.168:8868/logout
+      role-menu-uri: http://localhost:8080/uaa/services/roleManager/getRoleMenus.json
+spring:
+  cloud:
+    inetutils:
+      preferredNetworks:
+        - 47.93.
+  zipkin:
+    baseUrl: http://47.93.31.168:9411/
+  sleuth:
+    enabled: true
+    sampler:
+      probability: 1.0
+    zuul:
+      enabled: true
