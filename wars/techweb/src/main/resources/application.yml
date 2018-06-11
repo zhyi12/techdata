@@ -42,7 +42,7 @@ security:
     client:
       access-token-uri: http://47.93.31.168:8868/oauth/token
       user-authorization-uri: http://47.93.31.168:8868/oauth/authorize
-      client-id: web001
+      client-id: ${spring.application.name}
       client-secret: 123456
       registered-redirect-uri: /oauth/code
     resource:
